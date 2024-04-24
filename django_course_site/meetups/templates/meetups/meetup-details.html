@@ -1,0 +1,58 @@
+{% extends 'meetups/base/base.html' %}
+
+{% load static %}
+
+{% block title %}
+  {{ meetup.title }}
+{% endblock title %}
+
+
+{% block site_css %}
+<link rel='stylesheet' href="{% static 'meetups/styles/meetup-detail.css' %}">
+{% endblock site_css %}
+  
+
+{% block main_heading %}
+  {{meetup.title}}
+{% endblock main_heading %}
+
+
+{% block body %}
+
+{% if meetup_found %}
+<article>
+  <img id="main-image" src='{{meetup.image.url}}' alt='{{meetup.title}}'>
+
+  <section id='location'>
+    <h2>Meetup Location</h2>
+    <address>This meetup takes place in <span>{{meetup.location.name}}</span> {{meetup.location.address}}.</address>
+  </section>
+
+  <section id='details'>
+    <h2>What's This Meetup About?</h2>
+    <p>{{meetup.description}}</p>
+    <footer>
+      <p>Need more datails? Kindly <a href='mailto:{{meetup.organizer_email}}'>contact the organizer</a> (but dont't spam us &#128512 ).</p>
+    </footer>
+    </section>
+
+    <section id='registration'>
+      <h2>Join Us</h2>
+      <form action="{% url 'meetup-detail' meetup.slug %}" method="POST">
+        {% csrf_token %}
+        <ul>
+          {{ form.as_ul }}
+        </ul>
+        <div id="registration_actions">
+          <button>Register</button>
+        </div>
+      </form>
+    </section>
+</article>
+
+{% else %}
+<p>No meetup found for this slug, sorry!</p>
+
+{% endif %}
+{% endblock body %}
+ 
