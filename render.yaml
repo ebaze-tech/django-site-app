@@ -3,5 +3,5 @@ services:
     name: scheduler-app
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn myproject.wsgi
+    startCommand: gunicorn django_course_site.django_course_site.wsgi:application
     autoDeploy: true
