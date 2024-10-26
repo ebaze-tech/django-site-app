@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-hoqt2#(5at$6tyf1b#&3cdy3gjh2ctjt(ax3h)%xy4c(_+o4&3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["schdeulerapp.vercel.app"]
+ALLOWED_HOSTS = ["schdeulerapp.vercel.app", "https://scheduler-app-u40e.onrender.com"]
 
 
 # Application definition
