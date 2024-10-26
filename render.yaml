@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: scheduler-app
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn myproject.wsgi
+    autoDeploy: true
