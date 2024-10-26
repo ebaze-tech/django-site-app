@@ -8,6 +8,10 @@ https://docs.djangoproject.com/en/5.0/howto/deployment/wsgi/
 """
 
 import os
+import sys
+
+# Add the parent directory of django_course_site to the Python path
+sys.path.append(os.path.join(os.path.dirname(__file__), 'django_course_site'))
 
 from django.core.wsgi import get_wsgi_application
 
